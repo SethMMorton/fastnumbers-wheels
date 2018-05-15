@@ -5,10 +5,14 @@ matrix:
     - sudo: required
       services:
         - docker
-      env: PIP=pip
+      env:
+        - PIP=pip
+        - PYTHON=python
     - os: osx
       language: generic
-      env: PIP=pip2
+      env:
+        - PIP=pip2
+        - PYTHON=python2
 
 env:
   global:
@@ -24,4 +28,4 @@ script:
   - cibuildwheel --output-dir wheelhouse
   # Release the built wheels.
   - $PIP install twine
-  - python2 -m twine upload wheelhouse/*.whl
+  - $PYTHON -m twine upload wheelhouse/*.whl
