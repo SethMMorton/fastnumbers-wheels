@@ -9,6 +9,7 @@ build_script:
   - move repo\src .
   - move repo\setup.* .
   - dir
+  - python setup.py --name
   # Install and execute the builder.
   - pip install cibuildwheel==0.8.0
   - cibuildwheel --output-dir wheelhouse
