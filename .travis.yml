@@ -17,7 +17,7 @@ env:
 
 script:
   # First clone the specific release tag, then move interesting contents into CWD.
-  - git clone --branch 5.3.1 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers-wheels.git repo
+  - git clone --branch 2.0.3 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers-wheels.git repo
   - mv repo/setup.* repo/include repo/src .
   # Install and execute the builder.
   - $PIP install cibuildwheel==0.8.0
