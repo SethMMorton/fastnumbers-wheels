@@ -5,7 +5,9 @@ environment:
 build_script:
   # First clone the specific release tag, then move interesting contents into CWD.
   - git clone --branch 2.0.3 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
-  - move repo\setup.* repo\include repo\src .
+  - move repo\include .
+  - move repo\src .
+  - move repo\setup.* .
   # Install and execute the builder.
   - pip install cibuildwheel==0.8.0
   - cibuildwheel --output-dir wheelhouse
@@ -16,4 +18,3 @@ build_script:
 artifacts:
   - path: "wheelhouse\\*.whl"
     name: Wheels
-  
