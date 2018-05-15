@@ -24,4 +24,4 @@ script:
   - cibuildwheel --output-dir wheelhouse
   # Release the built wheels.
   - $PIP install twine
-  - python -m twine upload wheelhouse/*.whl
+  - python2 -m twine upload wheelhouse/*.whl
