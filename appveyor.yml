@@ -9,13 +9,13 @@ build_script:
   - move repo\src .
   - move repo\setup.* .
   - dir
-  - python setup.py --name
+  - C:\\Python36-x64\python.exe setup.py --name
   # Install and execute the builder.
-  - pip install cibuildwheel==0.8.0
-  - cibuildwheel --output-dir wheelhouse
+  - C:\\Python36-x64\python.exe -m pip install cibuildwheel==0.8.0
+  - C:\\Python36-x64\python.exe -m cibuildwheel --output-dir wheelhouse
   # Release the built wheels.
-  - echo python -m pip install twine
-  - echo python -m twine upload wheelhouse/*.whl
+  - echo C:\\Python36-x64\python.exe -m pip install twine
+  - echo C:\\Python36-x64\python.exe -m twine upload wheelhouse/*.whl
 
 artifacts:
   - path: "wheelhouse\\*.whl"
