@@ -1,0 +1,27 @@
+language: python
+
+matrix:
+  include:
+    - sudo: required
+      services:
+        - docker
+      env: PIP=pip
+    - os: osx
+      language: generic
+      env: PIP=pip2
+
+env:
+  global:
+    - TWINE_USERNAME=SethMMorton
+      # Note: TWINE_PASSWORD is set in Travis settings
+
+script:
+  # First clone the specific release tag, then move interesting contents into CWD.
+  - git clone --branch 5.3.1 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers-wheels.git repo
+  - mv repo/setup.* repo/include repo/src .
+  # Install and execute the builder.
+  - $PIP install cibuildwheel==0.8.0
+  - cibuildwheel --output-dir wheelhouse
+  # Release the built wheels.
+  - echo python -m pip install twine
+  - echo python -m twine upload wheelhouse/*.whl
