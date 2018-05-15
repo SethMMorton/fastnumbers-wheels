@@ -1,0 +1,19 @@
+environment:
+  TWINE_USERNAME: SethMMorton
+  # Note: TWINE_PASSWORD is set in Appveyor settings
+
+build_script:
+  # First clone the specific release tag, then move interesting contents into CWD.
+  - git clone --branch 2.0.3 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
+  - move repo\setup.* repo\include repo\src .
+  # Install and execute the builder.
+  - pip install cibuildwheel==0.8.0
+  - cibuildwheel --output-dir wheelhouse
+  # Release the built wheels.
+  - echo python -m pip install twine
+  - echo python -m twine upload wheelhouse/*.whl
+
+artifacts:
+  - path: "wheelhouse\\*.whl"
+    name: Wheels
+  
