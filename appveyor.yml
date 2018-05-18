@@ -8,7 +8,7 @@ build_script:
   - git clone --branch 2.0.3 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
   - move repo\include .
   - move repo\src .
-  - move repo\setup.* .
+  - move repo\setup.py .
   # Install and execute the builder.
   - pip install cibuildwheel==0.8.0
   - cibuildwheel --output-dir wheelhouse
