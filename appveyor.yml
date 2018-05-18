@@ -9,8 +9,6 @@ build_script:
   - move repo\include .
   - move repo\src .
   - move repo\setup.* .
-  - # Upgrade setuptools to get it to identify the package name.
-  - pip install -U setuptools
   # Install and execute the builder.
   - pip install cibuildwheel==0.8.0
   - cibuildwheel --output-dir wheelhouse
