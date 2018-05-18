@@ -5,7 +5,7 @@ environment:
 
 build_script:
   # First clone the specific release tag, then move interesting contents into CWD.
-  - git clone --branch 2.0.3 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
+  - git clone --branch 2.0.4 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
   - move repo\include .
   - move repo\src .
   - move repo\setup.py .
