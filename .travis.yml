@@ -24,7 +24,7 @@ script:
   - git clone --branch 2.1.0 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
   - mv repo/setup.py repo/include repo/src .
   # Install and execute the builder.
-  - $PIP install cibuildwheel==0.8.0
+  - $PIP install cibuildwheel==0.9.4
   - cibuildwheel --output-dir wheelhouse
   # Release the built wheels.
   - $PIP install twine

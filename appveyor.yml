@@ -10,7 +10,7 @@ build_script:
   - move repo\src .
   - move repo\setup.py .
   # Install and execute the builder.
-  - pip install cibuildwheel==0.8.0
+  - pip install cibuildwheel==0.9.4
   - cibuildwheel --output-dir wheelhouse
   # Release the built wheels.
   - pip install twine
