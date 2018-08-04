@@ -14,5 +14,5 @@ build_script:
   - cibuildwheel --output-dir wheelhouse
   # Release the built wheels.
   - pip install twine
-  - twine upload wheelhouse/*.whl
+  - twine upload --skip-existing wheelhouse/*.whl
 
