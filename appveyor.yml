@@ -5,12 +5,13 @@ environment:
 
 build_script:
   # First clone the specific release tag, then move interesting contents into CWD.
-  - git clone --branch 2.2.0 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
+  - git clone --branch 2.2.1 --single-branch --depth 1 https://github.com/SethMMorton/fastnumbers.git repo
   - move repo\include .
   - move repo\src .
   - move repo\setup.py .
   # Install and execute the builder.
-  - pip install cibuildwheel==0.9.4
+  - pip install -U wheel
+  - pip install cibuildwheel==0.10.2
   - cibuildwheel --output-dir wheelhouse
   # Release the built wheels.
   - pip install twine
